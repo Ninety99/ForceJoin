@@ -1,0 +1,11 @@
+name: ForceJoin
+version: 0.1
+main: me.NinetyNine.forcejoin.ForceJoin
+author: NinetyNine
+description: A forcejoin command for Admins!
+commands:
+  forcejoin: 
+    permission: join.force
+permissions:
+  forcejoin:
+    default: op
