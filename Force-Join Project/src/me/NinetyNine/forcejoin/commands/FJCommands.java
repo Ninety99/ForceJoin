@@ -22,6 +22,10 @@ public class FJCommands implements Listener, CommandExecutor {
 			return true;
 		} else {
 			Player player = (Player) sender;
+			if (isInTeam(player) == false) {
+				player.sendMessage(ChatColor.RED + "You must choose a team before force-joining");
+			} else
+				return false;
 			if (cmd.getName().equalsIgnoreCase("forcejoin")) {
 				if (player.hasPermission("join.force")) {
 					if (args.length == 0) {
@@ -102,6 +106,13 @@ public class FJCommands implements Listener, CommandExecutor {
 			else
 				return;
 		}
+	}
+
+	public boolean isInTeam(Player player) {
+		if (FJScoreboardListener.getScoreboard().getPlayerTeam(player) == null)
+			return false;
+		else
+			return true;
 	}
 
 	public ChatColor getChatColor() {
